@@ -1,0 +1,8 @@
+[
+    {"id": 1,"name": "豆腐","price": 2.32,"img": "images/1.jpg","num":1},
+    {"id": 2,"name": "豆腐干","price": 1.52,"img": "images/2.jpg","num":1},
+    {"id": 3,"name": "豆腐脑","price": 2.22,"img": "images/3.jpg","num":1},
+    {"id": 4,"name": "豆腐渣","price": 2.24,"img": "images/4.jpg","num":1},
+    {"id": 5,"name": "豆腐皮","price": 1.32,"img": "images/5.jpg","num":1},
+    {"id": 6,"name": "豆腐酱","price": 1.34,"img": "images/6.jpg","num":1}
+]

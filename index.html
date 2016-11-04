@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app='myapp'>
+  <head>
+    <meta charset="utf-8">
+    <title>购物车项目</title>
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style/test.css">
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row' ng-controller='TotalController'>
+        <div class='col-md-3 aside'>
+            <div class="list-group">
+                <a href="#/index" class="list-group-item active">
+                  导航
+                </a>
+                <a href="#/index" class="list-group-item">首页</a>
+                <a href="#/shop" class="list-group-item">商品列表</a>
+                <a href="#/cart" class="list-group-item">我的购物车<span class='shopnum' ng-model='num'>{{num}}</span></a>
+            </div>
+        </div>
+        <div class='col-md-9 pull-right' ng-view></div>
+      </div>
+    </div>
+  <script src='node_modules/angular/angular.min.js'></script>
+  <script src='node_modules/angular-route/angular-route.min.js'></script>
+  <script src='app.js'></script>
+  <script src='totalctr.js'></script>
+  <script src='shopctr.js'></script>
+  <script src='cartctr.js'></script>
+  <script type="text/javascript" src="dist/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="dist/jquery.fly.min.js"></script>
+   <script type="text/javascript">
+        $('.thumbnail').click(function(e) {
+            console.log(1);
+            $('<img ng-src="{{shop.img}}">').fly({
+                start: {
+                    left: e.pageX, //开始位置（必填）新创建的div元素会被设置成position: fixed
+                    top: e.pageY, //开始位置（必填）
+                },
+                end: {
+                    left: 1200, //结束位置（必填）
+                    top: 300, //结束位置（必填）
+                    // width: 100, //结束时高度
+                    // height: 100, //结束时高度
+                },
+                // autoPlay: false, //是否直接运动,默认true
+                speed: 1.2, //越大越快，默认1.2
+                vertex_Rtop: 100, //运动轨迹最高点top值，默认20
+                onEnd: function() {
+                        console.log('商品添加成功')
+                        $('.fly').remove();
+                    } //结束回调
+            })
+        })
+    </script>
+  </body>
+</html>

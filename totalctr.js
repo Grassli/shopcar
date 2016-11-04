@@ -1,0 +1,9 @@
+//总的控制器
+	app.controller('TotalController',function($scope,$http){
+		//通过ajax来获取数据
+		$http.get('data.json').then(function(res){
+				$scope.shoplist=res.data;	
+		}); 
+		//购物车中的商品
+		$scope.cartlist=[];
+	});

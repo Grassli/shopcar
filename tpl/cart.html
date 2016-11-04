@@ -1,0 +1,40 @@
+<div ng-controller='CartController'>
+	<table class='table'>
+          <tr>
+              <th>
+               <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox1"  ng-checked='ischeck' ng-model='checkAll' ng-click='check()'> 全选
+                </label>
+              </th>
+              <th>编号</th>
+              <th>商品名</th>
+              <th>商品图片</th>
+              <th>单价</th>
+              <th>商品数量</th>
+              <th>小计</th>
+              <th>操作</th>
+          </tr>
+          <tr ng-repeat='cart in cartlist'>
+            <td>
+               <input type='checkbox' class='checkbox' ng-checked='checkAll' ng-model='cart.ischecked'>
+            </td>
+            <td>{{cart.id}}</td>
+            <td>{{cart.name}}</td>
+            <td><img ng-src='{{cart.img}}' width='50'> </td>
+            <td>{{cart.price}}</td>
+            <td>
+              <button class='btn btn-default' ng-click='reduce($index)'>-</button>
+             <input type='text'  ng-model='cart.num'>
+              <button class='btn btn-default' ng-click='plus($index)'>+</button>
+            </td>
+            <td>{{cart.price*cart.num|number:2}}</td>
+            <td><button class='btn btn-danger' ng-click='remove($index)'>删除</button></td>
+          </tr>
+          <tr>
+            <td>总数量</td>
+            <td colspan="2">{{total.num}}</td>
+            <td>总计</td>
+            <td>{{total.price|number:2}}</td>
+          </tr>
+      </table>
+</div>

@@ -1,0 +1,39 @@
+//cart控制器
+app.controller('CartController',function($scope){
+    //数量减
+          $scope.reduce=function(index){
+          	if($scope.cartlist[index].num>1){
+              $scope.cartlist[index].num--;
+          	}
+          }
+           //数量加
+          $scope.plus=function(index){
+              $scope.cartlist[index].num++;
+          }
+          //删除
+          $scope.remove=function(index){
+            $scope.cartlist.splice(index,1);
+            $rootScope.num--;
+          }
+          $scope.$watch('cartlist',function(){
+            $scope.total={
+              price:0,
+              num: 0
+          }
+          	$scope.ischeck=true;
+            angular.forEach($scope.cartlist,function(value,key){
+              if(value.ischecked){
+                $scope.total.num+=value.num;
+                $scope.total.price+=value.num*value.price
+              }else{
+              	$scope.ischeck=false;
+              }           
+           })
+          },true)
+          //全选，全不选
+          $scope.check=function(){
+              angular.forEach($scope.cartlist,function(value,key){
+                    value.ischecked=$scope.checkAll;
+              })
+          }
+});

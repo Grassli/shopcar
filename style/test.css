@@ -1,0 +1,25 @@
+.container{
+	margin-top: 50px;
+}
+.aside{
+	position: fixed;
+	left: 10px;
+}
+.row{
+	margin-top: 20px;	
+}
+.thumbnail img{ 
+	height: 200px;
+ }
+.shopnum{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #D9534F;
+	float: right;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+}
